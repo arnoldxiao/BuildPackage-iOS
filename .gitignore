@@ -145,3 +145,4 @@ xcuserdata/
 # User-Define
 .DS_Store
 */.DS_Store
+BuildPackage-Example/BuildPackage-Example.xcworkspace/xcuserdata
