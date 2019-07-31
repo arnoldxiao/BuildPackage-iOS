@@ -14,6 +14,9 @@
 		E01B751322F1985800AA55A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E01B751222F1985800AA55A0 /* Assets.xcassets */; };
 		E01B751622F1985800AA55A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E01B751422F1985800AA55A0 /* LaunchScreen.storyboard */; };
 		E01B751922F1985800AA55A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E01B751822F1985800AA55A0 /* main.m */; };
+		E01B752922F19EA700AA55A0 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E01B752622F19EA700AA55A0 /* Common.xcconfig */; };
+		E01B752A22F19EA700AA55A0 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E01B752722F19EA700AA55A0 /* Debug.xcconfig */; };
+		E01B752B22F19EA700AA55A0 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E01B752822F19EA700AA55A0 /* Release.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		E01B751522F1985800AA55A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E01B751722F1985800AA55A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E01B751822F1985800AA55A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E01B752622F19EA700AA55A0 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		E01B752722F19EA700AA55A0 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		E01B752822F19EA700AA55A0 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,15 +90,26 @@
 			children = (
 				E01B750922F1985600AA55A0 /* AppDelegate.h */,
 				E01B750A22F1985600AA55A0 /* AppDelegate.m */,
+				E01B751222F1985800AA55A0 /* Assets.xcassets */,
+				E01B752522F19EA700AA55A0 /* Config */,
+				E01B751722F1985800AA55A0 /* Info.plist */,
+				E01B751422F1985800AA55A0 /* LaunchScreen.storyboard */,
+				E01B751822F1985800AA55A0 /* main.m */,
+				E01B750F22F1985600AA55A0 /* Main.storyboard */,
 				E01B750C22F1985600AA55A0 /* ViewController.h */,
 				E01B750D22F1985600AA55A0 /* ViewController.m */,
-				E01B750F22F1985600AA55A0 /* Main.storyboard */,
-				E01B751222F1985800AA55A0 /* Assets.xcassets */,
-				E01B751422F1985800AA55A0 /* LaunchScreen.storyboard */,
-				E01B751722F1985800AA55A0 /* Info.plist */,
-				E01B751822F1985800AA55A0 /* main.m */,
 			);
 			path = "BuildPackage-Example";
+			sourceTree = "<group>";
+		};
+		E01B752522F19EA700AA55A0 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				E01B752622F19EA700AA55A0 /* Common.xcconfig */,
+				E01B752722F19EA700AA55A0 /* Debug.xcconfig */,
+				E01B752822F19EA700AA55A0 /* Release.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,8 +171,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01B752B22F19EA700AA55A0 /* Release.xcconfig in Resources */,
 				E01B751622F1985800AA55A0 /* LaunchScreen.storyboard in Resources */,
+				E01B752A22F19EA700AA55A0 /* Debug.xcconfig in Resources */,
 				E01B751322F1985800AA55A0 /* Assets.xcassets in Resources */,
+				E01B752922F19EA700AA55A0 /* Common.xcconfig in Resources */,
 				E01B751122F1985600AA55A0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,7 +354,7 @@
 		};
 		E01B751D22F1985800AA55A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5E8FFAFB72ACE0B3B09B21E /* Pods-BuildPackage-Example.debug.xcconfig */;
+			baseConfigurationReference = E01B752722F19EA700AA55A0 /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -353,7 +373,7 @@
 		};
 		E01B751E22F1985800AA55A0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 47B9EB21A1BDA853F4F7CEA8 /* Pods-BuildPackage-Example.release.xcconfig */;
+			baseConfigurationReference = E01B752822F19EA700AA55A0 /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

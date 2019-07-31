@@ -1,0 +1,12 @@
+//
+//  Common.xcconfig
+//  BuildPackage-Example
+//
+//  Created by xiaochenghua on 2019/7/31.
+//  Copyright © 2019 xiaochenghua. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) API_URL='$(API_URL)'
