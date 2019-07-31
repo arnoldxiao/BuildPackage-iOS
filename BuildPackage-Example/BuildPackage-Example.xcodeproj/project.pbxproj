@@ -139,7 +139,7 @@
 		E01B74FE22F1985600AA55A0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = BPE;
+				CLASSPREFIX = BE;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = xiaochenghua;
 				TargetAttributes = {
