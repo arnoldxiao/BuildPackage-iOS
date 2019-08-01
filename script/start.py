@@ -39,7 +39,7 @@ if __name__ == '__main__':
     coloredlogs.install(level='DEBUG', logger=logger)
 
     if len(Start.servers) == 0:
-        logger.error('servers count is 0.')
+        logger.error('servers count is 0!')
         exit()
 
     begin_time = time.time()

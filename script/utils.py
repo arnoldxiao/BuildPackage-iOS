@@ -38,7 +38,7 @@ class Utils(object):
 
     @staticmethod
     def workspace_project_path():
-        return Utils.return_path(os.path.join(Utils.workspace_root_path(), 'project'))
+        return Utils.return_path(os.path.join(Utils.workspace_root_path(), Utils.project_name()))
 
     """
     给定一个path，如果path不存在，则递归创建，并原样返回path
