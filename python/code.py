@@ -14,6 +14,7 @@ repo = 'https://github.com/arnoldxiao/BuildPackage-Example.git'
 
 
 class Code(object):
+
     logger = logging.getLogger(__name__)
     coloredlogs.install(level='DEBUG', logger=logger)
 
@@ -31,7 +32,7 @@ class Code(object):
 
 
 if __name__ == '__main__':
-    Code().clone()
+    Code(version='1.1.0-0801').clone()
 
 
 

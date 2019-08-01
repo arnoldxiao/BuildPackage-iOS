@@ -11,13 +11,17 @@ import logging
 
 from server import Server
 from recipient import Recipient
+from code import Code
+from build import Build
+from utils import Utils
+from file import File
 
 
 class Start(object):
 
     default_configuration = 'Debug'
-    default_version = '1.0.0-0731'
-    default_server = ''
+    default_version = '1.1.0-0801'
+    default_server = '192.168.1.19'
     default_recipient_to = 'arnoldxiao@163.com'
     default_recipient_cc = ''
 
@@ -35,6 +39,10 @@ class Start(object):
 
 
 if __name__ == '__main__':
+    """
+    打包程序
+    """
+
     logger = logging.getLogger(__name__)
     coloredlogs.install(level='DEBUG', logger=logger)
 
@@ -45,8 +53,11 @@ if __name__ == '__main__':
     begin_time = time.time()
     date_time = time.strftime('%Y%m%d%H%M', time.localtime(begin_time))
 
+    Code(version=Start.version).clone()
+    Build(configuration=Start.configuration).pre_clean()
 
-
-
+    for server in Start.servers:
+        Utils(server).copy_code()
+        File(server).modify_all()
 
 
