@@ -28,7 +28,7 @@ class Code(object):
             exit()
 
         __branch = 'BE/' + self.__version
-        Repo.clone_from(url=repo, to_path=Utils.workspace_project_path(), branch=__branch)
+        Repo.clone_from(url=repo, to_path=Utils.code_path(), branch=__branch)
 
 
 if __name__ == '__main__':

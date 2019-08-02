@@ -50,6 +50,9 @@ if __name__ == '__main__':
         logger.error('servers count is 0!')
         exit()
 
+    # 清除目录
+    Utils.remove_workspace()
+
     begin_time = time.time()
     date_time = time.strftime('%Y%m%d%H%M', time.localtime(begin_time))
 
@@ -58,6 +61,6 @@ if __name__ == '__main__':
 
     for server in Start.servers:
         Utils(server).copy_code()
-        File(server).modify_all()
+        File(server, Start.configuration).modify_all()
 
 

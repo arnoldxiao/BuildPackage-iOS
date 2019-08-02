@@ -21,8 +21,8 @@ class Build(object):
 
     def pre_clean(self):
         # path =
-        if not os.path.exists(Utils.workspace_project_path()):
-            logging.error('%s is not exists!' % Utils.workspace_project_path())
+        if not os.path.exists(Utils.code_path()):
+            logging.error('%s is not exists!' % Utils.code_path())
             exit()
 
-        os.system('cd %s;xcodebuild clean -project Pods/Pods.xcodeproj -alltargets -sdk iphoneos -configuration %s' % (Utils.workspace_project_path(), self.__configuration))
+        os.system('cd %s;xcodebuild clean -project Pods/Pods.xcodeproj -alltargets -sdk iphoneos -configuration %s' % (Utils.code_path(), self.__configuration))
