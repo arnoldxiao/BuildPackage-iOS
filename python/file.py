@@ -9,16 +9,16 @@ from utils import Utils
 
 class File(object):
 
-    def __init__(self, server, configuration):
+    def __init__(self, server, configuration, version=None):
         self.__server = server
-        self.__configuration = configuration
+        self.__utils = Utils(self.__server, configuration, version)
 
     def modify_all(self):
         self.__modify_config()
         self.__modify_info()
 
     def __modify_config(self):
-        path = Utils(self.__server).config_path(self.__configuration)
+        path = self.__utils.config_path()
         if path is None:
             return
 
@@ -42,28 +42,34 @@ class File(object):
         f.close()
 
     def __modify_info(self):
-        path = Utils(self.__server).info_plist_path()
+        path = self.__utils.info_plist_path()
 
         # 读取
         f = open(path, 'r')
         lines = f.readlines()
         f.close()
 
-        # 寻找CFBundleDisplayName所在行号
-        head = -1
+        # 寻找 CFBundleDisplayName/CFBundleShortVersionString/CFBundleVersion 所在行号
+        head_display_name = -1
+        head_version = -1
+        head_build_version = -1
 
-        # 写入
+        # 写入, 分别修改App显示名、versionId、buildId
         f = open(path, 'w')
         for i in range(len(lines)):
-            # CFBundleDisplayName
             if lines[i].find('<key>CFBundleDisplayName</key>') != -1:
-                f.write(lines[i])
-                head = i + 1
-                continue
-            elif i == head:
-                f.write('\t<string>%s</string>' % Utils(self.__server).app_display_name(self.__configuration))
-            else:
-                f.write(lines[i])
+                head_display_name = i + 1
+            elif lines[i].find('<key>CFBundleShortVersionString</key>') != -1:
+                head_version = i + 1
+            elif lines[i].find('<key>CFBundleVersion</key>') != -1:
+                head_build_version = i + 1
+            elif i == head_display_name:
+                lines[i] = '\t<string>%s</string>' % self.__utils.app_display_name()
+            elif i == head_version:
+                lines[i] = '\t<string>%s</string>' % self.__utils.version_id()
+            elif i == head_build_version:
+                lines[i] = '\t<string>%s</string>' % self.__utils.build_id()
+            f.write(lines[i])
         f.close()
 
     @staticmethod

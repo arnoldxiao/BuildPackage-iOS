@@ -60,7 +60,7 @@ if __name__ == '__main__':
     Build(configuration=Start.configuration).pre_clean()
 
     for server in Start.servers:
-        Utils(server).copy_code()
-        File(server, Start.configuration).modify_all()
-
-
+        utils = Utils(server, Start.configuration)
+        utils.copy_code()
+        File(server, Start.configuration, Start.version).modify_all()
+        Build(server, Start.configuration).run()
